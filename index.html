@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>PlanetXplorer</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600&family=Instrument+Sans:wght@400;600&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="c" aria-label="Interactive 3D Solar System. Drag to rotate, scroll to zoom, arrow keys to orbit, plus and minus to zoom." tabindex="0"></canvas>
+
+  <header>
+    <h1>PlanetXplorer</h1>
+    <nav class="tabs" role="tablist" aria-label="Sections"></nav>
+  </header>
+
+  <div id="side" class="glass">
+    <input id="q" type="search" placeholder="Search planets and moons" aria-label="Search planets and moons">
+    <div id="list" role="list" aria-label="Objects"></div>
+    <p class="note" id="prog"></p>
+  </div>
+
+  <aside id="info" class="glass" aria-live="polite"></aside>
+
+  <div id="bar" class="glass" role="group" aria-label="Simulation controls">
+    <button id="pp" aria-pressed="false">Pause</button>
+    <label>Time <input id="sp" type="range" min="0" max="7" step=".1" value="5" aria-label="Simulation speed, logarithmic from 1 times real time to 10 million times"></label>
+    <output id="spv" aria-live="off"></output>
+    <button id="x1">1× real time</button>
+    <button id="rt">Reset time</button>
+    <button id="ob" aria-pressed="true">Orbits</button>
+    <button id="lbt" aria-pressed="true">Labels</button>
+    <button id="ax" aria-pressed="false">Axes</button>
+    <button id="sc" aria-pressed="false">Distance scale: teaching</button>
+    <button id="rs">Reset view</button>
+  </div>
+
+  <section id="v-compare" class="view glass" hidden aria-label="Compare planets"></section>
+  <section id="v-quiz" class="view glass" hidden aria-label="Quiz"></section>
+
+  <div id="tour" class="glass" role="dialog" aria-label="Welcome" hidden>
+    <h2>Welcome aboard</h2>
+    <p>Drag to rotate, scroll or pinch to zoom, and click a planet to fly to it. Arrow keys orbit and +/− zoom.</p>
+    <p>Use the speed slider and pause button at the bottom. Compare planets and take the quiz from the tabs above.</p>
+    <button class="fav" id="tk" style="float:none">Start exploring</button>
+  </div>
+
+  <!-- Three.js library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- Main application script -->
+  <script src="script.js"></script>
+</body>
+</html>
